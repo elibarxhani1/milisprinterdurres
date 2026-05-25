@@ -22,6 +22,14 @@ function CloseIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
+function WhatsAppIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props} aria-hidden="true">
+      <path d="M12.04 2C6.57 2 2.12 6.45 2.12 11.92c0 1.75.46 3.46 1.34 4.98L2 22l5.26-1.38a9.86 9.86 0 0 0 4.78 1.22h.01c5.47 0 9.92-4.45 9.92-9.92C21.97 6.45 17.52 2 12.04 2Zm5.8 14.11c-.24.68-1.4 1.29-1.93 1.37-.5.08-1.14.12-1.83-.1-.42-.14-.96-.33-1.66-.63-2.92-1.26-4.82-4.19-4.96-4.38-.14-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.26-.28.56-.35.75-.35h.54c.17 0 .4-.06.62.47.24.56.84 1.95.92 2.1.08.15.13.32.03.52-.1.2-.15.32-.3.5-.15.17-.31.38-.45.51-.15.15-.31.31-.13.62.18.31.79 1.31 1.69 2.13 1.16 1.04 2.13 1.37 2.44 1.52.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.16.28.1 1.79.84 2.09.99.3.15.5.23.58.36.08.13.08.77-.16 1.45Z" />
+    </svg>
+  )
+}
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { language, setLanguage } = useLanguage()
@@ -138,8 +146,9 @@ export default function Header() {
                 href="https://wa.me/355685515622"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 block text-center px-3 py-2 rounded-lg bg-amber-500 text-black font-bold"
+                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-amber-500 px-3 py-2 font-bold text-black"
               >
+                <WhatsAppIcon className="h-4 w-4" />
                 WhatsApp
               </a>
               <div className="mt-3 grid grid-cols-3 gap-2">
