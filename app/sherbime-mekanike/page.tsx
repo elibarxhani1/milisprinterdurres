@@ -4,9 +4,25 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, X } from "lucide-react"
 import { useLanguage } from "../contexts/LanguageContext"
 import translations from "../translations"
+
+function BackIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mr-2 h-4 w-4" aria-hidden="true">
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  )
+}
+
+function CloseIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-8 h-8" aria-hidden="true">
+      <path d="M18 6L6 18" />
+      <path d="M6 6l12 12" />
+    </svg>
+  )
+}
 
 export default function SherbimeMekanike() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
@@ -76,22 +92,22 @@ export default function SherbimeMekanike() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-blue-900 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-blue-900 text-white pt-24 md:pt-28">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <Link href="/">
-            <Button variant="ghost" className="text-white hover:text-blue-300">
-              <ChevronLeft className="mr-2 h-4 w-4" />
-              {t.back}
+            <Button variant="ghost" className="text-white bg-black/45 border border-amber-400/40 hover:bg-amber-500/15 hover:text-amber-200">
+              <BackIcon />
+              {t.goBack}
             </Button>
           </Link>
         </div>
 
         <h1 className="text-4xl font-bold mb-8 text-center">{t.mechanicalServicesTitle}</h1>
 
-        <div className="max-w-3xl mx-auto mb-8">
+        <div className="max-w-3xl mx-auto mb-8 text-center">
           <p className="text-lg mb-4">{t.mechanicalServicesIntro}</p>
-          <ul className="list-disc list-inside space-y-2 mb-8">
+          <ul className="space-y-2 mb-8">
             <li>{t.mechanicalServicesService1}</li>
             <li>{t.mechanicalServicesService2}</li>
             <li>{t.mechanicalServicesService3}</li>
@@ -145,7 +161,7 @@ export default function SherbimeMekanike() {
               className="absolute top-4 right-4 text-white hover:text-blue-300"
               onClick={() => setSelectedImage(null)}
             >
-              <X className="w-8 h-8" />
+              <CloseIcon />
             </button>
             <div className="relative w-full max-w-5xl max-h-[90vh]">
               <Image
