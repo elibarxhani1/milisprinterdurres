@@ -69,7 +69,7 @@ export default function SpecialistePage() {
           {images.map((image, index) => (
             <div
               key={index}
-              className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-[0_18px_50px_-24px_rgba(251,146,60,0.75)] transition-shadow duration-300 border border-amber-400/35 bg-[linear-gradient(135deg,rgba(154,52,18,0.75)_0%,rgba(10,10,10,0.88)_55%,rgba(0,0,0,1)_100%)] p-1 hover:shadow-xl"
             >
               <Image
                 src={image.src || "/placeholder.svg"}

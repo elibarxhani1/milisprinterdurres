@@ -27,6 +27,12 @@ export default function Header() {
   const { language, setLanguage } = useLanguage()
   const t = translations[language]
 
+  const languageFlags = {
+    sq: "🇦🇱",
+    en: "🇬🇧",
+    it: "🇮🇹",
+  }
+
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId)
     if (section) {
@@ -85,20 +91,23 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl p-1">
             <button
               onClick={() => changeLanguage("sq")}
-              className={`px-2 py-1 rounded-md text-xs ${language === "sq" ? "bg-amber-500 text-black" : "text-white/80 hover:text-white"}`}
+              className={`flex items-center gap-1 px-2 py-1 rounded-md text-xs ${language === "sq" ? "bg-amber-500 text-black" : "text-white/80 hover:text-white"}`}
             >
+              <span aria-hidden="true">{languageFlags.sq}</span>
               SQ
             </button>
             <button
               onClick={() => changeLanguage("en")}
-              className={`px-2 py-1 rounded-md text-xs ${language === "en" ? "bg-amber-500 text-black" : "text-white/80 hover:text-white"}`}
+              className={`flex items-center gap-1 px-2 py-1 rounded-md text-xs ${language === "en" ? "bg-amber-500 text-black" : "text-white/80 hover:text-white"}`}
             >
+              <span aria-hidden="true">{languageFlags.en}</span>
               EN
             </button>
             <button
               onClick={() => changeLanguage("it")}
-              className={`px-2 py-1 rounded-md text-xs ${language === "it" ? "bg-amber-500 text-black" : "text-white/80 hover:text-white"}`}
+              className={`flex items-center gap-1 px-2 py-1 rounded-md text-xs ${language === "it" ? "bg-amber-500 text-black" : "text-white/80 hover:text-white"}`}
             >
+              <span aria-hidden="true">{languageFlags.it}</span>
               IT
             </button>
           </div>
@@ -136,20 +145,23 @@ export default function Header() {
               <div className="mt-3 grid grid-cols-3 gap-2">
                 <button
                   onClick={() => changeLanguage("sq")}
-                  className={`px-2 py-2 rounded-lg text-xs ${language === "sq" ? "bg-amber-500 text-black" : "bg-white/5 text-white/80"}`}
+                  className={`flex items-center justify-center gap-1 px-2 py-2 rounded-lg text-xs ${language === "sq" ? "bg-amber-500 text-black" : "bg-white/5 text-white/80"}`}
                 >
+                  <span aria-hidden="true">{languageFlags.sq}</span>
                   Shqip
                 </button>
                 <button
                   onClick={() => changeLanguage("en")}
-                  className={`px-2 py-2 rounded-lg text-xs ${language === "en" ? "bg-amber-500 text-black" : "bg-white/5 text-white/80"}`}
+                  className={`flex items-center justify-center gap-1 px-2 py-2 rounded-lg text-xs border border-amber-400/60 ${language === "en" ? "bg-amber-500 text-black" : "bg-white/5 text-white/80"}`}
                 >
+                  <span aria-hidden="true">{languageFlags.en}</span>
                   English
                 </button>
                 <button
                   onClick={() => changeLanguage("it")}
-                  className={`px-2 py-2 rounded-lg text-xs ${language === "it" ? "bg-amber-500 text-black" : "bg-white/5 text-white/80"}`}
+                  className={`flex items-center justify-center gap-1 px-2 py-2 rounded-lg text-xs border border-amber-400/60 ${language === "it" ? "bg-amber-500 text-black" : "bg-white/5 text-white/80"}`}
                 >
+                  <span aria-hidden="true">{languageFlags.it}</span>
                   Italiano
                 </button>
               </div>

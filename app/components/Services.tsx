@@ -76,8 +76,8 @@ export default function Services() {
           {services.map((service, index) => (
             <Link href={service.link} key={index}>
               <div className="h-full rounded-2xl border border-white/15 bg-gradient-to-b from-white/8 to-white/3 p-6 text-center hover:border-amber-400/60 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-                <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/35 flex items-center justify-center mb-5">
-                  <service.icon className="w-6 h-6 text-amber-300" />
+                <div className="mx-auto w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/35 flex items-center justify-center mb-5">
+                  <service.icon className="block w-6 h-6 text-amber-300" />
                 </div>
                 <h3 className="text-2xl text-white mb-3">{service.title}</h3>
                 <p className="text-neutral-300 leading-relaxed">{service.description}</p>
