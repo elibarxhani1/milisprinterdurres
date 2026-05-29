@@ -24,6 +24,7 @@ export default function Hero() {
   const { language } = useLanguage()
   const t = translations[language]
   const logoSrc = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/mili-sprinter-transparent.png`
+  const watermarkSrc = logoSrc
 
   return (
     <section className="pt-32 md:pt-40 pb-16 md:pb-24 relative">
@@ -84,7 +85,7 @@ export default function Hero() {
                   priority
                 />
               </div>
-              <div className="rounded-xl border border-amber-400/30 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.24),transparent_42%),linear-gradient(135deg,rgba(154,52,18,0.92)_0%,rgba(10,10,10,0.92)_55%,rgba(0,0,0,0.98)_100%)] p-2 shadow-[0_18px_50px_-24px_rgba(251,146,60,0.75)]">
+              <div className="relative rounded-xl border border-amber-400/30 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.24),transparent_42%),linear-gradient(135deg,rgba(154,52,18,0.92)_0%,rgba(10,10,10,0.92)_55%,rgba(0,0,0,0.98)_100%)] p-2 shadow-[0_18px_50px_-24px_rgba(251,146,60,0.75)]">
                 <video autoPlay muted loop playsInline className="w-full rounded-lg border border-white/10 shadow-lg">
                   <source
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20d755cb-694e-473d-b46c-1a282027c1f9-8dSCmtcFsX1noKTrjwcc3J9TR46MiE.mp4"
@@ -92,6 +93,15 @@ export default function Hero() {
                   />
                   Your browser does not support the video tag.
                 </video>
+                <div className="pointer-events-none absolute bottom-4 right-4 opacity-80">
+                  <Image
+                    src={watermarkSrc}
+                    alt="Mili Sprinter watermark"
+                    width={96}
+                    height={38}
+                    className="h-auto w-20 md:w-24 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
+                  />
+                </div>
               </div>
             </div>
           </div>

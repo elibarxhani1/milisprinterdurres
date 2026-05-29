@@ -28,6 +28,7 @@ export default function RiparimeElektrike() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const { language } = useLanguage()
   const t = translations[language]
+  const watermarkSrc = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/mili-sprinter-transparent.png`
 
   const images = [
     {
@@ -118,6 +119,15 @@ export default function RiparimeElektrike() {
               />
               Your browser does not support the video tag.
             </video>
+            <div className="pointer-events-none absolute bottom-4 right-4 opacity-80">
+              <Image
+                src={watermarkSrc}
+                alt="Mili Sprinter watermark"
+                width={96}
+                height={38}
+                className="h-auto w-20 md:w-24 object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
+              />
+            </div>
           </div>
         </div>
 
