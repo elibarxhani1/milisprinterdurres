@@ -133,7 +133,7 @@ export default function RiparimeElektrike() {
               <ExpandIcon />
               <span className="text-xs font-semibold md:text-sm">{t.expandVideo}</span>
             </button>
-            <video controls className="w-full max-h-[70vh] mx-auto rounded-lg border border-white/10" playsInline preload="metadata">
+            <video autoPlay muted loop playsInline controls className="w-full max-h-[70vh] mx-auto rounded-lg border border-white/10" preload="metadata">
               <source
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Video%202025-01-26%20at%2023.30.22-ZoATCCwtOC9xnAcPyipz8QVEWhqaEs.mp4"
                 type="video/mp4"
@@ -200,7 +200,7 @@ export default function RiparimeElektrike() {
               <CloseIcon />
             </button>
             <div className="relative w-full max-w-6xl overflow-hidden rounded-2xl border border-amber-400/40 bg-[linear-gradient(135deg,rgba(154,52,18,0.88)_0%,rgba(10,10,10,0.95)_55%,rgba(0,0,0,1)_100%)] p-3 shadow-[0_24px_80px_-42px_rgba(251,146,60,0.85)]" onClick={(event) => event.stopPropagation()}>
-              <video controls autoPlay className="w-full max-h-[88vh] rounded-xl border border-white/10" playsInline preload="metadata">
+              <video autoPlay muted loop playsInline controls className="w-full max-h-[88vh] rounded-xl border border-white/10" preload="metadata">
                 <source src={selectedVideo} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
