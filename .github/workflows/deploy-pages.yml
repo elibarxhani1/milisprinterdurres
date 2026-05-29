@@ -37,7 +37,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_ACTIONS: true
-          CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
+          CUSTOM_DOMAIN: true
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
