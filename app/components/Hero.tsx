@@ -23,6 +23,7 @@ function WhatsAppIcon(props: SVGProps<SVGSVGElement>) {
 export default function Hero() {
   const { language } = useLanguage()
   const t = translations[language]
+  const logoSrc = `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/mili-sprinter-transparent.png`
 
   return (
     <section className="pt-32 md:pt-40 pb-16 md:pb-24 relative">
@@ -75,7 +76,7 @@ export default function Hero() {
             <div className="rounded-2xl border border-amber-400/35 bg-gradient-to-br from-orange-950/80 via-black/60 to-black/90 p-3 md:p-4 shadow-[0_24px_80px_-42px_rgba(251,146,60,0.85)]">
               <div className="flex justify-center mb-3">
                 <Image
-                  src="/mili-sprinter-transparent.png"
+                  src={logoSrc}
                   alt="Mili Sprinter Logo"
                   className="h-auto w-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.45)]"
                   width={540}

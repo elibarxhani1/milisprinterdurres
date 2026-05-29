@@ -11,6 +11,9 @@ const nextConfig = {
   trailingSlash: true,
   basePath: useRepoBasePath ? `/${repoName}` : "",
   assetPrefix: useRepoBasePath ? `/${repoName}/` : "",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: useRepoBasePath ? `/${repoName}` : "",
+  },
   images: {
     unoptimized: true,
     domains: ["hebbkx1anhila5yf.public.blob.vercel-storage.com", "i.ibb.co"],
