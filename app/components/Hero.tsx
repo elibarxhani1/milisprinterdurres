@@ -49,6 +49,7 @@ export default function Hero() {
                 href="tel:+355685515622"
                 className="inline-flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/20 text-white font-bold py-3 px-6 rounded-xl text-base transition"
               >
+                <PhoneIcon className="h-5 w-5" aria-hidden="true" />
                 +355 685 515 622
               </a>
             </div>
