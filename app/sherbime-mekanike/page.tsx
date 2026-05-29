@@ -24,20 +24,8 @@ function CloseIcon() {
   )
 }
 
-function ExpandIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true">
-      <path d="M15 3h6v6" />
-      <path d="M9 21H3v-6" />
-      <path d="M21 3l-7 7" />
-      <path d="M3 21l7-7" />
-    </svg>
-  )
-}
-
 export default function SherbimeMekanike() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
   const { language } = useLanguage()
   const t = translations[language]
 
@@ -133,16 +121,6 @@ export default function SherbimeMekanike() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {videos.map((video, index) => (
               <div key={index} className="relative rounded-xl border border-amber-400/45 bg-[linear-gradient(135deg,rgba(154,52,18,0.88)_0%,rgba(10,10,10,0.95)_55%,rgba(0,0,0,1)_100%)] p-2 shadow-[0_18px_50px_-24px_rgba(251,146,60,0.8)] overflow-hidden aspect-video">
-                <button
-                  type="button"
-                  className="absolute right-3 top-3 z-10 flex items-center gap-2 rounded-full border border-amber-300/50 bg-black/75 px-3 py-2 text-amber-100 shadow-lg backdrop-blur-sm hover:bg-amber-500/20 hover:text-white md:right-4 md:top-4 md:px-4 md:py-3"
-                  onClick={() => setSelectedVideo(video.src)}
-                  aria-label="Open video fullscreen"
-                  title="Open video fullscreen"
-                >
-                  <ExpandIcon />
-                  <span className="text-xs font-semibold md:text-sm">{t.expandVideo}</span>
-                </button>
                 <video autoPlay muted loop playsInline controls className="w-full h-full rounded-lg border border-white/10" preload="metadata">
                   <source src={video.src} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -199,26 +177,6 @@ export default function SherbimeMekanike() {
           </div>
         )}
 
-        {selectedVideo && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4"
-            onClick={() => setSelectedVideo(null)}
-          >
-            <button
-              className="absolute right-3 top-3 md:right-4 md:top-4 z-50 rounded-full border border-amber-300/40 bg-black/70 p-3 text-white shadow-lg hover:bg-amber-500/20 hover:text-amber-200"
-              onClick={() => setSelectedVideo(null)}
-              type="button"
-            >
-              <CloseIcon />
-            </button>
-            <div className="relative w-full max-w-6xl overflow-hidden rounded-2xl border border-amber-400/40 bg-[linear-gradient(135deg,rgba(154,52,18,0.88)_0%,rgba(10,10,10,0.95)_55%,rgba(0,0,0,1)_100%)] p-3 shadow-[0_24px_80px_-42px_rgba(251,146,60,0.85)]" onClick={(event) => event.stopPropagation()}>
-              <video autoPlay muted loop playsInline controls className="w-full max-h-[88vh] rounded-xl border border-white/10" preload="metadata">
-                <source src={selectedVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   )
