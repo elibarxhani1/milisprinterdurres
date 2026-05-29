@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["design-v2"]
+    branches: ["design-v2", "main", "master"]
   workflow_dispatch:
 
 permissions:
@@ -31,9 +31,10 @@ jobs:
         run: npm ci
 
       - name: Build static site
-        run: npx next build --webpack
+        run: npm run build
         env:
           GITHUB_ACTIONS: true
+          CUSTOM_DOMAIN: ${{ vars.CUSTOM_DOMAIN }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
