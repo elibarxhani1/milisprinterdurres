@@ -111,7 +111,7 @@ export default function RiparimeElektrike() {
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-2xl font-bold mb-4 text-center">{t.repairProcess}</h2>
           <div className="relative rounded-xl border border-amber-400/45 bg-[linear-gradient(135deg,rgba(154,52,18,0.88)_0%,rgba(10,10,10,0.95)_55%,rgba(0,0,0,1)_100%)] p-2 shadow-[0_18px_50px_-24px_rgba(251,146,60,0.8)] overflow-hidden">
-            <video autoPlay muted loop playsInline controls className="w-full max-h-[70vh] mx-auto rounded-lg border border-white/10" preload="metadata">
+            <video autoPlay muted loop playsInline className="w-full max-h-[70vh] mx-auto rounded-lg border border-white/10" preload="metadata">
               <source
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Video%202025-01-26%20at%2023.30.22-ZoATCCwtOC9xnAcPyipz8QVEWhqaEs.mp4"
                 type="video/mp4"

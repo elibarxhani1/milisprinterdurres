@@ -85,7 +85,7 @@ export default function Hero() {
                 />
               </div>
               <div className="rounded-xl border border-amber-400/30 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.24),transparent_42%),linear-gradient(135deg,rgba(154,52,18,0.92)_0%,rgba(10,10,10,0.92)_55%,rgba(0,0,0,0.98)_100%)] p-2 shadow-[0_18px_50px_-24px_rgba(251,146,60,0.75)]">
-                <video autoPlay muted loop playsInline controls className="w-full rounded-lg border border-white/10 shadow-lg">
+                <video autoPlay muted loop playsInline className="w-full rounded-lg border border-white/10 shadow-lg">
                   <source
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/20d755cb-694e-473d-b46c-1a282027c1f9-8dSCmtcFsX1noKTrjwcc3J9TR46MiE.mp4"
                     type="video/mp4"

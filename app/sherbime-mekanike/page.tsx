@@ -121,7 +121,7 @@ export default function SherbimeMekanike() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {videos.map((video, index) => (
               <div key={index} className="relative rounded-xl border border-amber-400/45 bg-[linear-gradient(135deg,rgba(154,52,18,0.88)_0%,rgba(10,10,10,0.95)_55%,rgba(0,0,0,1)_100%)] p-2 shadow-[0_18px_50px_-24px_rgba(251,146,60,0.8)] overflow-hidden aspect-video">
-                <video autoPlay muted loop playsInline controls className="w-full h-full rounded-lg border border-white/10" preload="metadata">
+                <video autoPlay muted loop playsInline className="w-full h-full rounded-lg border border-white/10" preload="metadata">
                   <source src={video.src} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
