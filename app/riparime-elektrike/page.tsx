@@ -119,7 +119,7 @@ export default function RiparimeElektrike() {
               />
               Your browser does not support the video tag.
             </video>
-            <div className="pointer-events-none absolute bottom-4 right-4 opacity-80">
+            <div className="pointer-events-none absolute bottom-4 left-4 opacity-80">
               <Image
                 src={watermarkSrc}
                 alt="Mili Sprinter watermark"
