@@ -30,16 +30,41 @@ function WhatsAppIcon(props: SVGProps<SVGSVGElement>) {
   )
 }
 
+function FlagIcon({ code, className }: { code: "sq" | "en" | "it"; className?: string }) {
+  if (code === "sq") {
+    return (
+      <svg viewBox="0 0 24 16" className={className} aria-hidden="true">
+        <rect width="24" height="16" fill="#d11f2a" />
+        <path d="M12 4.2 10.7 6h2.6L12 4.2Zm-2.9 2.4.8 1.3h4.2l.8-1.3h-5.8Zm1 2 1.2 2h1.4l1.2-2h-3.8Z" fill="#111" />
+      </svg>
+    )
+  }
+
+  if (code === "it") {
+    return (
+      <svg viewBox="0 0 24 16" className={className} aria-hidden="true">
+        <rect width="8" height="16" x="0" fill="#009246" />
+        <rect width="8" height="16" x="8" fill="#ffffff" />
+        <rect width="8" height="16" x="16" fill="#ce2b37" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg viewBox="0 0 24 16" className={className} aria-hidden="true">
+      <rect width="24" height="16" fill="#012169" />
+      <path d="M0 0 24 16M24 0 0 16" stroke="#ffffff" strokeWidth="3" />
+      <path d="M0 0 24 16M24 0 0 16" stroke="#c8102e" strokeWidth="1.4" />
+      <path d="M12 0v16M0 8h24" stroke="#ffffff" strokeWidth="5" />
+      <path d="M12 0v16M0 8h24" stroke="#c8102e" strokeWidth="2.8" />
+    </svg>
+  )
+}
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { language, setLanguage } = useLanguage()
   const t = translations[language]
-
-  const languageFlags = {
-    sq: "🇦🇱",
-    en: "🇬🇧",
-    it: "🇮🇹",
-  }
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId)
@@ -101,21 +126,21 @@ export default function Header() {
               onClick={() => changeLanguage("sq")}
               className={`flex items-center gap-1 px-2 py-1 rounded-md text-xs ${language === "sq" ? "bg-amber-500 text-black" : "text-white/80 hover:text-white"}`}
             >
-              <span aria-hidden="true">{languageFlags.sq}</span>
+              <FlagIcon code="sq" className="h-3.5 w-5 rounded-[2px]" />
               SQ
             </button>
             <button
               onClick={() => changeLanguage("en")}
               className={`flex items-center gap-1 px-2 py-1 rounded-md text-xs ${language === "en" ? "bg-amber-500 text-black" : "text-white/80 hover:text-white"}`}
             >
-              <span aria-hidden="true">{languageFlags.en}</span>
+              <FlagIcon code="en" className="h-3.5 w-5 rounded-[2px]" />
               EN
             </button>
             <button
               onClick={() => changeLanguage("it")}
               className={`flex items-center gap-1 px-2 py-1 rounded-md text-xs ${language === "it" ? "bg-amber-500 text-black" : "text-white/80 hover:text-white"}`}
             >
-              <span aria-hidden="true">{languageFlags.it}</span>
+              <FlagIcon code="it" className="h-3.5 w-5 rounded-[2px]" />
               IT
             </button>
           </div>
@@ -156,21 +181,21 @@ export default function Header() {
                   onClick={() => changeLanguage("sq")}
                   className={`flex items-center justify-center gap-1 px-2 py-2 rounded-lg text-xs ${language === "sq" ? "bg-amber-500 text-black" : "bg-white/5 text-white/80"}`}
                 >
-                  <span aria-hidden="true">{languageFlags.sq}</span>
+                  <FlagIcon code="sq" className="h-3.5 w-5 rounded-[2px]" />
                   Shqip
                 </button>
                 <button
                   onClick={() => changeLanguage("en")}
                   className={`flex items-center justify-center gap-1 px-2 py-2 rounded-lg text-xs border border-amber-400/60 ${language === "en" ? "bg-amber-500 text-black" : "bg-white/5 text-white/80"}`}
                 >
-                  <span aria-hidden="true">{languageFlags.en}</span>
+                  <FlagIcon code="en" className="h-3.5 w-5 rounded-[2px]" />
                   English
                 </button>
                 <button
                   onClick={() => changeLanguage("it")}
                   className={`flex items-center justify-center gap-1 px-2 py-2 rounded-lg text-xs border border-amber-400/60 ${language === "it" ? "bg-amber-500 text-black" : "bg-white/5 text-white/80"}`}
                 >
-                  <span aria-hidden="true">{languageFlags.it}</span>
+                  <FlagIcon code="it" className="h-3.5 w-5 rounded-[2px]" />
                   Italiano
                 </button>
               </div>
