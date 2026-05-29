@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 import type { SVGProps } from "react"
 import { useLanguage } from "../contexts/LanguageContext"
 import translations from "../translations"
@@ -73,12 +74,13 @@ export default function Hero() {
           <div className="opacity-0 reveal-up reveal-delay-1">
             <div className="rounded-2xl border border-amber-400/35 bg-gradient-to-br from-orange-950/80 via-black/60 to-black/90 p-3 md:p-4 shadow-[0_24px_80px_-42px_rgba(251,146,60,0.85)]">
               <div className="flex justify-center mb-3">
-                <img
+                <Image
                   src="/mili-sprinter-transparent.png"
                   alt="Mili Sprinter Logo"
                   className="h-auto w-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.45)]"
                   width={540}
                   height={216}
+                  priority
                 />
               </div>
               <div className="rounded-xl border border-amber-400/30 bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.24),transparent_42%),linear-gradient(135deg,rgba(154,52,18,0.92)_0%,rgba(10,10,10,0.92)_55%,rgba(0,0,0,0.98)_100%)] p-2 shadow-[0_18px_50px_-24px_rgba(251,146,60,0.75)]">
