@@ -1,13 +1,10 @@
 import "./globals.css"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import Image from "next/image"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import { LanguageProvider } from "./contexts/LanguageContext"
 import type React from "react"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Mili Sprinter",
@@ -21,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sq">
-      <body className={inter.className}>
+      <body>
         <LanguageProvider>
           <div className="min-h-screen flex flex-col relative">
             <div className="fixed inset-0 -z-10">
