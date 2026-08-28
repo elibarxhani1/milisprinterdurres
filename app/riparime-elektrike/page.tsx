@@ -4,12 +4,40 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, X } from "lucide-react"
 import { useLanguage } from "../contexts/LanguageContext"
 import translations from "../translations"
 
+function BackIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mr-2 h-4 w-4" aria-hidden="true">
+      <path d="M15 18l-6-6 6-6" />
+    </svg>
+  )
+}
+
+function CloseIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-6 w-6 md:h-8 md:w-8" aria-hidden="true">
+      <path d="M18 6L6 18" />
+      <path d="M6 6l12 12" />
+    </svg>
+  )
+}
+
+function ExpandIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5" aria-hidden="true">
+      <path d="M15 3h6v6" />
+      <path d="M9 21H3v-6" />
+      <path d="M21 3l-7 7" />
+      <path d="M3 21l7-7" />
+    </svg>
+  )
+}
+
 export default function RiparimeElektrike() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
   const { language } = useLanguage()
   const t = translations[language]
 
@@ -69,22 +97,22 @@ export default function RiparimeElektrike() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-blue-900 text-white">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-blue-900 text-white pt-24 md:pt-28">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <Link href="/">
-            <Button variant="ghost" className="text-white hover:text-blue-300">
-              <ChevronLeft className="mr-2 h-4 w-4" />
-              {t.back}
+            <Button variant="ghost" className="text-white bg-black/45 border border-amber-400/40 hover:bg-amber-500/15 hover:text-amber-200">
+              <BackIcon />
+              {t.goBack}
             </Button>
           </Link>
         </div>
 
         <h1 className="text-4xl font-bold mb-8 text-center">{t.electricalRepairsTitle}</h1>
 
-        <div className="max-w-3xl mx-auto mb-8">
+        <div className="max-w-3xl mx-auto mb-8 text-center">
           <p className="text-lg mb-4">{t.electricalRepairsIntro}</p>
-          <ul className="list-disc list-inside space-y-2 mb-8">
+          <ul className="space-y-2 mb-8">
             <li>{t.electricalRepairsService1}</li>
             <li>{t.electricalRepairsService2}</li>
             <li>{t.electricalRepairsService3}</li>
@@ -93,9 +121,19 @@ export default function RiparimeElektrike() {
         </div>
 
         <div className="max-w-4xl mx-auto mb-12">
-          <h2 className="text-2xl font-bold mb-4">{t.repairProcess}</h2>
-          <div className="relative rounded-lg overflow-hidden bg-black">
-            <video controls className="w-full max-h-[70vh] mx-auto" playsInline preload="metadata">
+          <h2 className="text-2xl font-bold mb-4 text-center">{t.repairProcess}</h2>
+          <div className="relative rounded-xl border border-amber-400/45 bg-[linear-gradient(135deg,rgba(154,52,18,0.88)_0%,rgba(10,10,10,0.95)_55%,rgba(0,0,0,1)_100%)] p-2 shadow-[0_18px_50px_-24px_rgba(251,146,60,0.8)] overflow-hidden">
+            <button
+              type="button"
+              className="absolute right-3 top-3 z-10 flex items-center gap-2 rounded-full border border-amber-300/50 bg-black/75 px-3 py-2 text-amber-100 shadow-lg backdrop-blur-sm hover:bg-amber-500/20 hover:text-white md:right-4 md:top-4 md:px-4 md:py-3"
+              onClick={() => setSelectedVideo("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Video%202025-01-26%20at%2023.30.22-ZoATCCwtOC9xnAcPyipz8QVEWhqaEs.mp4")}
+              aria-label="Open video fullscreen"
+              title="Open video fullscreen"
+            >
+              <ExpandIcon />
+              <span className="text-xs font-semibold md:text-sm">{t.expandVideo}</span>
+            </button>
+            <video controls className="w-full max-h-[70vh] mx-auto rounded-lg border border-white/10" playsInline preload="metadata">
               <source
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Video%202025-01-26%20at%2023.30.22-ZoATCCwtOC9xnAcPyipz8QVEWhqaEs.mp4"
                 type="video/mp4"
@@ -109,7 +147,7 @@ export default function RiparimeElektrike() {
           {images.map((image, index) => (
             <button
               key={index}
-              className="relative aspect-square overflow-hidden rounded-lg cursor-pointer group"
+              className="relative aspect-square overflow-hidden rounded-xl cursor-pointer group border border-amber-400/35 bg-[linear-gradient(135deg,rgba(154,52,18,0.75)_0%,rgba(10,10,10,0.88)_55%,rgba(0,0,0,1)_100%)] p-1 shadow-[0_18px_50px_-24px_rgba(251,146,60,0.75)]"
               onClick={() => setSelectedImage(image.src)}
             >
               <Image
@@ -130,10 +168,11 @@ export default function RiparimeElektrike() {
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-4 right-4 text-white hover:text-blue-300"
+              className="absolute right-3 top-3 md:right-4 md:top-4 z-50 rounded-full border border-amber-300/40 bg-black/70 p-3 text-white shadow-lg hover:bg-amber-500/20 hover:text-amber-200"
               onClick={() => setSelectedImage(null)}
+              type="button"
             >
-              <X className="w-8 h-8" />
+              <CloseIcon />
             </button>
             <div className="relative w-full max-w-5xl max-h-[90vh]">
               <Image
@@ -144,6 +183,27 @@ export default function RiparimeElektrike() {
                 className="object-contain w-full h-full"
                 quality={100}
               />
+            </div>
+          </div>
+        )}
+
+        {selectedVideo && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <button
+              className="absolute right-3 top-3 md:right-4 md:top-4 z-50 rounded-full border border-amber-300/40 bg-black/70 p-3 text-white shadow-lg hover:bg-amber-500/20 hover:text-amber-200"
+              onClick={() => setSelectedVideo(null)}
+              type="button"
+            >
+              <CloseIcon />
+            </button>
+            <div className="relative w-full max-w-6xl overflow-hidden rounded-2xl border border-amber-400/40 bg-[linear-gradient(135deg,rgba(154,52,18,0.88)_0%,rgba(10,10,10,0.95)_55%,rgba(0,0,0,1)_100%)] p-3 shadow-[0_24px_80px_-42px_rgba(251,146,60,0.85)]" onClick={(event) => event.stopPropagation()}>
+              <video controls autoPlay className="w-full max-h-[88vh] rounded-xl border border-white/10" playsInline preload="metadata">
+                <source src={selectedVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         )}

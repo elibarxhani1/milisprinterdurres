@@ -62,16 +62,26 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="py-20 bg-white bg-opacity-10">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">{t.ourServices}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <section id="services" className="pb-20 md:pb-28">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="opacity-0 reveal-up reveal-delay-2 text-center mb-10">
+          <p className="text-amber-300 text-sm font-semibold tracking-wider">{t.servicesEyebrow}</p>
+          <h2 className="text-4xl md:text-5xl text-white mt-2">{t.ourServices}</h2>
+          <p className="text-neutral-300 mt-3 max-w-2xl mx-auto">
+            {t.servicesSectionDescription}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {services.map((service, index) => (
             <Link href={service.link} key={index}>
-              <div className="bg-gray-800 bg-opacity-50 p-6 rounded-lg text-center hover:bg-gray-700 transition-colors cursor-pointer">
-                <service.icon className="w-12 h-12 mx-auto mb-4 text-blue-400" />
-                <h3 className="text-xl font-semibold mb-2 text-white">{service.title}</h3>
-                <p className="text-white">{service.description}</p>
+              <div className="h-full rounded-2xl border border-white/15 bg-gradient-to-b from-white/8 to-white/3 p-6 text-center hover:border-amber-400/60 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+                <div className="mx-auto w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-400/35 flex items-center justify-center mb-5">
+                  <service.icon className="block w-6 h-6 text-amber-300" />
+                </div>
+                <h3 className="text-2xl text-white mb-3">{service.title}</h3>
+                <p className="text-neutral-300 leading-relaxed">{service.description}</p>
+                <p className="mt-5 text-sm font-bold text-amber-300">{t.learnMore} {'->'}</p>
               </div>
             </Link>
           ))}
