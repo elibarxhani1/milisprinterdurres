@@ -12,6 +12,9 @@ const bodyFont = Nunito_Sans({ subsets: ["latin"], variable: "--font-body" })
 export const metadata: Metadata = {
   title: "Mili Sprinter",
   description: "Shërbim Ekspert për Mercedes Sprinter në Shqiperi",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+  },
 }
 
 export default function RootLayout({

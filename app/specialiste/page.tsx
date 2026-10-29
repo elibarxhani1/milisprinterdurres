@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "../contexts/LanguageContext"
 import translations from "../translations"
+import MediaWatermark from "../components/MediaWatermark"
 
 function BackIcon() {
   return (
@@ -79,6 +80,7 @@ export default function SpecialistePage() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority={index < 2}
               />
+              <MediaWatermark className="bottom-2 left-2 md:bottom-3 md:left-3" />
             </div>
           ))}
         </div>

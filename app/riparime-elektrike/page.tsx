@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "../contexts/LanguageContext"
 import translations from "../translations"
+import MediaWatermark from "../components/MediaWatermark"
 
 function BackIcon() {
   return (
@@ -140,6 +141,7 @@ export default function RiparimeElektrike() {
               />
               Your browser does not support the video tag.
             </video>
+            <MediaWatermark />
           </div>
         </div>
 
@@ -158,6 +160,7 @@ export default function RiparimeElektrike() {
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 quality={75}
               />
+              <MediaWatermark className="bottom-2 left-2 md:bottom-3 md:left-3" />
             </button>
           ))}
         </div>
@@ -183,6 +186,7 @@ export default function RiparimeElektrike() {
                 className="object-contain w-full h-full"
                 quality={100}
               />
+              <MediaWatermark />
             </div>
           </div>
         )}
@@ -204,6 +208,7 @@ export default function RiparimeElektrike() {
                 <source src={selectedVideo} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+              <MediaWatermark />
             </div>
           </div>
         )}

@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
+import MediaWatermark from "./MediaWatermark"
 
 const images = [
   {
@@ -44,7 +45,7 @@ export function SprinterCarousel() {
           <CarouselItem key={index}>
             <div className="p-1">
               <Card>
-                <CardContent className="flex aspect-[16/9] items-center justify-center p-0">
+                <CardContent className="relative flex aspect-[16/9] items-center justify-center overflow-hidden p-0">
                   <Image
                     src={image.src || "/placeholder.svg"}
                     alt={image.alt}
@@ -53,6 +54,7 @@ export function SprinterCarousel() {
                     className="object-cover w-full h-full rounded-lg"
                     priority={index === 0}
                   />
+                  <MediaWatermark />
                 </CardContent>
               </Card>
             </div>
